@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('seller/css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
-    <title>Zmurod .. زمرد</title>
+    <title>Mkana .. مكانة</title>
     <style>
         body {
             font-size: 22px !important;

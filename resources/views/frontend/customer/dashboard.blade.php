@@ -87,17 +87,11 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>تعليم المكرمية</td>
+                                            {{-- <td>تعليم المكرمية</td>
                                             <td>مايو 10, 2023</td>
                                             <td>مايو 10, 2023</td>
-                                            <td><a href="#" class="view">التفاصيل</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>تعليم الكروشية</td>
-                                            <td>مايو 10, 2023</td>
-                                            <td>مايو 10, 2023</td>
-                                            <td><a href="#" class="view">التفاصيل</a></td>
-                                        </tr>
+                                            <td><a href="#" class="view">التفاصيل</a></td> --}}
+                                        </tr> 
                                     </tbody>
                                 </table>
                             </div>

@@ -3,9 +3,9 @@
 use App\Http\Livewire\Popup;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerificationController;
+use Illuminate\Support\Facades\Auth;
 
-
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::group(['as' => 'frontend.', 'namespace' => 'Auth'], function () {
     // login
@@ -76,7 +76,7 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.', 'namespace' => 'Custo
     Route::post('pop', 'PopupModalController@show')->name('popup.show');
 });
 
-Route::group(['prefix' => 'customer', 'as' => 'customer.', 'namespace' => 'Customer', 'middleware' => ['auth', 'customer', 'verified']], function () {
+Route::group(['prefix' => 'customer', 'as' => 'customer.', 'namespace' => 'Customer', 'middleware' => ['auth', 'customer']], function () {
     // account
     Route::get('dashboard', 'CustomersController@index')->name('home');
     Route::post('dashboard/media', 'CustomersController@storeMedia')->name('customers.storeMedia');

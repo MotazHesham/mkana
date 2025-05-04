@@ -13,7 +13,7 @@ class CourseController extends Controller
     public function index()
     {
         //courses
-        $courses = Course::paginate(4);
+        $courses = Course::where('approved', 1)->paginate(4);
         return view('frontend.courses.index', compact('courses'));
     }
 
@@ -27,8 +27,11 @@ class CourseController extends Controller
     {
         $keyword = $request->filter;
 
-        $courses = Course::query()->where('name', 'LIKE', "%$keyword%")
-            ->orWhere('description', 'LIKE', "%$keyword%")
+        $courses = Course::query()->where(function($query) use ($keyword){
+                $query->where('name', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%");
+            })
+            ->where('approved', 1)
             ->paginate(4);
 
         // Check if there are no courses found

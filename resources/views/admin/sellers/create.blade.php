@@ -46,7 +46,7 @@
                         <label class="required"
                             for="identity_number">{{ trans('cruds.user.fields.identity') }}</label>
                         <input class="form-control {{ $errors->has('identity_number') ? 'is-invalid' : '' }}"
-                            type="text" name="identity_number" id="identity_number" placeholder="رقم الهوية" required>
+                            type="text" name="identity_number" id="identity_number" placeholder="رقم الهوية" value="{{ old('identity_number') }}" required>
                         @if ($errors->has('identity_number'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('identity_number') }}
@@ -59,7 +59,7 @@
 
                         <input class="form-control {{ $errors->has('commercial_register') ? 'is-invalid' : '' }}"
                             type="text" name="commercial_register" id="commercial_register"
-                            placeholder="رقم السجل التجاري" required>
+                            placeholder="رقم السجل التجاري" value="{{ old('commercial_register') }}" required>
                         @if ($errors->has('commercial_register'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('commercial_register') }}

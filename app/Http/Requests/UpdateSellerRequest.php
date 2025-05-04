@@ -39,10 +39,16 @@ class UpdateSellerRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'phone' => [
+                'required',
+                'unique:users,phone,' . request()->user_id,
+                'regex:/^05[0-9]{8}$/',
+            ],
             'identity_number' => [
                 'required',
                 'string',
                 'max:255',
+                'regex:/^[12]\d{9}$/',
                 'unique:users,identity_number,' . request()->user_id,
             ],
             'commercial_register' =>

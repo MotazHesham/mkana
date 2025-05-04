@@ -34,8 +34,9 @@ class StoreCustomerRequest extends FormRequest
             ],
             'phone' => [
                 'string',
-                'nullable',
+                'nullable', 
                 'unique:users',
+                'regex:/^05[0-9]{8}$/',
             ],
             'address' =>[
                 'required',

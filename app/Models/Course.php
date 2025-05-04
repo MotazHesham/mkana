@@ -41,6 +41,7 @@ class Course extends Model implements HasMedia
         'start_at',
         'price',
         'type',
+        'approved',
         'courses_hours',
         'created_at',
         'updated_at',

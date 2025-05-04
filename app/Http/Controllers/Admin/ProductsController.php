@@ -63,10 +63,7 @@ class ProductsController extends Controller
             });
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
-            });
-            $table->editColumn('current_stock', function ($row) {
-                return $row->current_stock ? $row->current_stock : '';
-            });
+            }); 
             $table->editColumn('most_recent', function ($row) {
                 return ' <label class="c-switch c-switch-pill c-switch-success">
                 <input onchange="update_statuses(this,\'most_recent\')" value="' . $row->id . '" 
@@ -112,14 +109,12 @@ class ProductsController extends Controller
                     <input onchange="update_statuses(this,\'fav\')" value="' . $row->id . '" type="checkbox" class="c-switch-input" ' . ($row->fav ? "checked" : null) . '>
                     <span class="c-switch-slider"></span>
                 </label>';
-
             });
             $table->editColumn('published', function ($row) {
                 return ' <label class="c-switch c-switch-pill c-switch-success">
                     <input onchange="update_statuses(this,\'published\')" value="' . $row->id . '" type="checkbox" class="c-switch-input" ' . ($row->published ? "checked" : null) . '>
                     <span class="c-switch-slider"></span>
                 </label>';
-
             });
             $table->editColumn('product_offers', function ($row) {
                 $labels = [];
@@ -169,11 +164,10 @@ class ProductsController extends Controller
         }
 
         if ($request->input('file', false)) {
-          
-                $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('file'))))->toMediaCollection('file');
 
-            }
-       
+            $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('file'))))->toMediaCollection('file');
+        }
+
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $product->id]);
         }

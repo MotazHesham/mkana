@@ -11,7 +11,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('current_stock');
+            $table->integer('current_stock')->default(0);
             $table->integer('rating')->default(0);
             $table->longText('information');
             $table->boolean('most_recent')->default(0);

@@ -150,7 +150,7 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}?v=1.0.0"></script>
     <script>
             function showAlert(type, title, message) {
                 swal({

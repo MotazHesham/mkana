@@ -92,7 +92,11 @@
                                     </div>
                                     <div class="pro-details-cart">
                                         @auth
-                                            <button class="add-cart" type="submit"> اضف الى السلة</button>
+                                            @if($product->current_stock > 0)
+                                                <button class="add-cart" type="submit"> اضف الى السلة</button>
+                                            @else
+                                                <a class="add-cart" href="#"> غير متاح</a>
+                                            @endif
                                         @else
                                             <a class="add-cart" href="{{ route('frontend.userlogin') }}"> اضف الى السلة</a>
                                         @endauth

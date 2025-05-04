@@ -10,6 +10,7 @@
         <form method="POST" action="{{ route("admin.customers.update", [$customer->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="user_id" value="{{ $customer->user_id }}">
             <div class="row justify-content-between">
                 <div class="form-group col-4">
                     <label class="required" for="name">{{ trans('cruds.customer.fields.name') }}</label>
@@ -32,7 +33,7 @@
                     <span class="help-block">{{ trans('cruds.customer.fields.email_helper') }}</span>
                 </div>
                 <div class="form-group col-4">
-                    <label class="required" for="password">{{ trans('cruds.customer.fields.password') }}</label>
+                    <label for="password">{{ trans('cruds.customer.fields.password') }}</label>
                     <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password">
                     @if($errors->has('password'))
                         <div class="invalid-feedback">

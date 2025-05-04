@@ -56,11 +56,7 @@
                                 <div class="blog-post-media">
                                     <div class="blog-post-video position-relative">
                                         {{-- Iframe value --}}
-                                        <iframe width="560" height="315"
-                                            src="https://www.youtube.com/embed/7E76PPoIVW4?si=jP1JXHi2t-wVLZ_A"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowfullscreen></iframe>
+                                        {!! $blog->media_url !!}
                                     </div>
                                 </div>
                                 <div class="blog-text">

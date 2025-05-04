@@ -42,6 +42,7 @@ class StoreSellerRequest extends FormRequest
             'phone' => [
                 'required',
                 'unique:users',
+                'regex:/^05[0-9]{8}$/',
             ],
             'country' => [
                 'required',
@@ -49,7 +50,7 @@ class StoreSellerRequest extends FormRequest
             'identity_number' => [
                 'required',
                 'string',
-                'max:255',
+                'regex:/^[12]\d{9}$/',
                 'unique:users',
             ],
             'commercial_register' =>

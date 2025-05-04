@@ -39,10 +39,7 @@
                         </th>
                         <th>
                             {{ trans('cruds.blog.fields.user') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.blog.fields.media_url') }}
-                        </th>
+                        </th> 
                         <th>
                             {{ trans('cruds.blog.fields.type') }}
                         </th>
@@ -83,10 +80,7 @@
                             </td>
                             <td>
                                 {{ $blog->user->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $blog->media_url ?? '' }}
-                            </td>
+                            </td> 
                             <td>
                                 {{ App\Models\Blog::TYPE_SELECT[$blog->type] ?? '' }}
                             </td>

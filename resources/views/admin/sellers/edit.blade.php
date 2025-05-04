@@ -72,17 +72,21 @@
                         <label>نوع الكيان</label>
                         <select name="type" id="type" class="form-control">
 
-                            <option value="individual" {{ $seller->organization_id == null ? 'selected' : '' }}>فرد</option>
+                            <option value="individual" {{ $seller->organization_id == null ? 'selected' : '' }}>فرد
+                            </option>
                             <option value="oragainzation" {{ $seller->organization_id != null ? 'selected' : '' }}>مؤسسة
                             </option>
                         </select>
                     </div>
-                    <div class="form-group col-3  {{ $seller->organization_id == null ? 'd-none' : 'd-block' }}" id="oragainzation-select">
+                    <div class="form-group col-3  {{ $seller->organization_id == null ? 'd-none' : 'd-block' }}"
+                        id="oragainzation-select">
                         <label>أختر المؤسسة التابع لها </label>
                         <select name="organization_id" class="form-control">
 
                             @foreach ($organizations as $organization)
-                                <option  {{ $seller->organization_id == $organization->id ? 'selected' : '' }}value="{{ $organization->id }}">{{ $organization->name }}
+                                <option
+                                    {{ $seller->organization_id == $organization->id ? 'selected' : '' }}value="{{ $organization->id }}">
+                                    {{ $organization->name }}
                                 </option>
                             @endforeach
                         </select>
@@ -160,7 +164,6 @@
                         <span class="help-block">{{ trans('cruds.seller.fields.photo_helper') }}</span>
                     </div>
                 </div>
-
                 <div class="form-group row justify-content-center">
                     <button class="btn btn-danger col-4" type="submit">
                         {{ trans('global.save') }}
@@ -261,7 +264,7 @@
                                                     .message ?
                                                     `${genericErrorText}\n${xhr.status} ${response.message}` :
                                                     `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`
-                                                    );
+                                                );
                                             }
 
                                             $('form').append(
@@ -275,7 +278,7 @@
 
                                         if (xhr.upload) {
                                             xhr.upload.addEventListener('progress', function(
-                                            e) {
+                                                e) {
                                                 if (e.lengthComputable) {
                                                     loader.uploadTotal = e.total;
                                                     loader.uploaded = e.loaded;
@@ -305,16 +308,16 @@
             }
         });
     </script>
-     <script>
-      $(document).ready(function() {
-          $('#type').on('change', function() {
-              if ($(this).val() == 'oragainzation') {
-                  $('#oragainzation-select').removeClass('d-none');
-              } else {
-                  $('#oragainzation-select').addClass('d-none');
+    <script>
+        $(document).ready(function() {
+            $('#type').on('change', function() {
+                if ($(this).val() == 'oragainzation') {
+                    $('#oragainzation-select').removeClass('d-none');
+                } else {
+                    $('#oragainzation-select').addClass('d-none');
 
-              }
-          });
-      })
-  </script>
+                }
+            });
+        })
+    </script>
 @endsection

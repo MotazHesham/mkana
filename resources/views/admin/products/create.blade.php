@@ -12,8 +12,8 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label class="required" for="name">{{ trans('cruds.product.fields.name') }}</label>
-                        <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
-                            id="name" value="{{ old('name', '') }}" required>
+                        <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
+                            name="name" id="name" value="{{ old('name', '') }}" required>
                         @if ($errors->has('name'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('name') }}
@@ -27,7 +27,8 @@
                         <select class="form-control select2 {{ $errors->has('product_category') ? 'is-invalid' : '' }}"
                             name="product_category_id" id="product_category_id" required>
                             @foreach ($product_categories as $id => $entry)
-                                <option value="{{ $id }}" {{ old('product_category_id') == $id ? 'selected' : '' }}>
+                                <option value="{{ $id }}"
+                                    {{ old('product_category_id') == $id ? 'selected' : '' }}>
                                     {{ $entry }}</option>
                             @endforeach
                         </select>
@@ -72,7 +73,8 @@
                         <span class="help-block">{{ trans('cruds.product.fields.weight_helper') }}</span>
                     </div>
                     <div class="form-group col-md-3">
-                        <label class="required" for="current_stock">{{ trans('cruds.product.fields.current_stock') }}</label>
+                        <label class="required"
+                            for="current_stock">{{ trans('cruds.product.fields.current_stock') }}</label>
                         <input class="form-control {{ $errors->has('current_stock') ? 'is-invalid' : '' }}" type="number"
                             name="current_stock" id="current_stock" value="{{ old('current_stock', '') }}" step="1"
                             required>
@@ -132,7 +134,8 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label class="required" for="image">{{ trans('cruds.product.fields.image') }}</label>
-                        <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
+                        <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}"
+                            id="image-dropzone">
                         </div>
                         @if ($errors->has('image'))
                             <div class="invalid-feedback">
@@ -154,8 +157,9 @@
                         <span class="help-block">{{ trans('cruds.product.fields.information_helper') }}</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <label  for="file">{{ trans('cruds.product.fields.file') }}</label>
-                        <div class="needsclick dropzone {{ $errors->has('file') ? 'is-invalid' : '' }}" id="file-dropzone">
+                        <label for="file">{{ trans('cruds.product.fields.file') }}</label>
+                        <div class="needsclick dropzone {{ $errors->has('file') ? 'is-invalid' : '' }}"
+                            id="file-dropzone">
                         </div>
                         @if ($errors->has('file'))
                             <div class="invalid-feedback">
@@ -211,7 +215,7 @@
                                                     .message ?
                                                     `${genericErrorText}\n${xhr.status} ${response.message}` :
                                                     `${genericErrorText}\n ${xhr.status} ${xhr.statusText}`
-                                                    );
+                                                );
                                             }
 
                                             $('form').append(
@@ -225,7 +229,7 @@
 
                                         if (xhr.upload) {
                                             xhr.upload.addEventListener('progress', function(
-                                            e) {
+                                                e) {
                                                 if (e.lengthComputable) {
                                                     loader.uploadTotal = e.total;
                                                     loader.uploaded = e.loaded;
@@ -316,7 +320,7 @@
             }
         }
     </script>
-       <script>
+    <script>
         Dropzone.options.fileDropzone = {
             url: '{{ route('admin.products.storeMedia') }}',
             maxFilesize: 2, // MB

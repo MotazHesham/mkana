@@ -23,16 +23,15 @@ class UpdateCustomerRequest extends FormRequest
             ],
             'email' => [
                 'required',
-            ],
-            'password' => [
-                'required',
-            ],
+            ], 
             'personal_photo' => [
                 'required',
             ],
             'phone' => [
                 'string',
                 'nullable',
+                'unique:users,phone,' . $this->user_id,
+                'regex:/^05[0-9]{8}$/',
             ],
             'country'=>[
                 'required',

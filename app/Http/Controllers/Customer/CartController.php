@@ -32,6 +32,10 @@ class CartController extends Controller
             return response()->json(['message' => 'Product not found.'], 404);
         }
 
+        if ($product->current_stock < $request->quantity) {
+            alert('Product Out of Stock','','error');
+            return redirect()->route('frontend.product',$request->product_id);
+        }
         // Get the authenticated user
         $customerId = auth()->user()->id; // Auth::id()
 
@@ -54,12 +58,7 @@ class CartController extends Controller
                 'total_cost' =>  $que * $product->calc_product_price()
             ]);
             $exist = 0;
-        }
-
-        //update product quantity in store 
-          $product->update([
-            'current_stock' => $product->current_stock - $que,
-            ]);
+        } 
 
         //return the <li> of product;
         if (isset($product->image)) {
