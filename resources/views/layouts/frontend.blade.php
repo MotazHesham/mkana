@@ -30,7 +30,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('dashboard_offline/css/dropzone.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
 
 
 </head>
@@ -39,9 +40,8 @@
 
 
     <!-- Header Area Start -->
-
-    <header class="header">
-        <div class="header-main sticky-nav">
+    <header>
+        <div class="header-main sticky-nav ">
             <div class="container position-relative">
                 <div class="row">
                     <div class="col-auto align-self-center">
@@ -51,10 +51,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col align-self-center d-none d-lg-block">
+                    <div class="col align-self-center d-none d-lg-block d-mobile-none ">
                         <div class="main-menu">
                             <ul>
-                                <li><a href="{{ route('frontend.home') }}">الرئيسية</a></li>
+                                <li><a href="{{ route('frontend.home') }}">الرئيسية</a></li> 
                                 <li class="dropdown position-static">
                                     <a href="#">التسوق <i class="fa fa-angle-down"></i></a>
                                     <ul class="mega-menu d-block">
@@ -88,13 +88,14 @@
                                                 <li>
                                                     <a class="p-0" href="{{ route('frontend.home') }}">
                                                         <img class="img-responsive w-100"
-                                                            src="{{ asset('assets/images/logo.png') }}" alt="">
+                                                            src="{{ asset('assets/images/logo.png') }}"
+                                                            alt="">
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </lةi>
-                                    </ul>
-                                </li>
+                                        </li>
+                                    </ul> 
+                                </li>  
                                 <li><a href="{{ route('frontend.courses.index') }}">ورش العمل</a></li>
                                 <li><a href="{{ route('customer.shops') }}">المتاجر</a></li>
                                 <li><a href="{{ route('frontend.forums') }}">ملتقى التجار</a></li>
@@ -102,22 +103,22 @@
                                 <li><a href="{{ route('customer.contact-us') }}">تواصل معنا</a></li>
                             </ul>
                         </div>
-                    </div>
-
+                    </div> 
                     @php
                         $login_route = route('frontend.userlogin');
                     @endphp
-
+                    <!-- Header Action Start -->
                     <div class="col col-lg-auto align-self-center pl-0">
                         <div class="header-actions">
+                            <!-- Single Wedge Start -->
                             <a href="#" class="header-action-btn" data-bs-toggle="modal"
                                 data-bs-target="#searchActive">
                                 <i class="pe-7s-search"></i>
                             </a>
+                            <!-- Single Wedge End -->
                             <div class="header-bottom-set dropdown">
-                                <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">
-                                    <i class="pe-7s-users"></i>
-                                </button>
+                                <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><i
+                                        class="pe-7s-users"></i></button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @auth
                                         @php
@@ -142,11 +143,13 @@
                                     @endauth
                                 </ul>
                             </div>
+                            <!-- Single Wedge Start -->
                             <a @auth href="#offcanvas-wishlist" @else href="#"
                                 onclick="location.href='{{ $login_route }}'" @endauth
                                 class="header-action-btn offcanvas-toggle">
                                 <i class="pe-7s-like"></i>
                             </a>
+                            <!-- Single Wedge End -->
                             <a @auth href="#offcanvas-cart" @else href="#" onclick="location.href='{{ $login_route }}'" @endauth
                                 class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
                                 <i class="pe-7s-shopbag"></i>
@@ -159,16 +162,16 @@
                                 </span>
                             </a>
                             <a href="#offcanvas-mobile-menu"
-                                class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
+                                class="header-action-btn header-action-btn-menu offcanvas-toggle d-desktop-none">
                                 <i class="pe-7s-menu"></i>
                             </a>
-
                         </div>
+                        <!-- Header Action End -->
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </header> 
     <!-- Header Area End -->
     <div class="offcanvas-overlay"></div>
 
