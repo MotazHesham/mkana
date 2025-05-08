@@ -42,4 +42,11 @@ class CourseController extends Controller
 
         return view('frontend.courses.index', ['courses' => $courses]);
     }
+    public function store(Request $request)
+    {
+        $course = Course::findOrFail($request->course_id);
+        $course->users()->attach(auth()->user()->id);
+        Alert::toast('Course Subscribed Successfully', 'success')->position('center');
+        return redirect()->route('frontend.courses.show', $course->id);
+    }
 }

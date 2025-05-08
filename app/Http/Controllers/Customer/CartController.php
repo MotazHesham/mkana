@@ -40,11 +40,14 @@ class CartController extends Controller
         $customerId = auth()->user()->id; // Auth::id()
 
         // Find or create the cart for the customer
-        $cart = auth()->user()->cart()->where('product_id', $productId)->first();
+        $cart = Cart::where('user_id', $customerId)
+                ->where('product_id', $productId)
+                ->first();
         $exist = 0;
-        $request->quantity > $product->current_stock ? $que =  $product->current_stock : $que = $request->quantity ;
+        $quantity = min($request->quantity, $product->current_stock);
+        
         if ($cart) {
-            $cart->quantity =  $que ?? $cart->quantity + 1 ; 
+            $cart->quantity = $quantity ?? $cart->quantity + 1;
             $cart->total_cost = $cart->quantity * $cart->price_with_discount;
             $cart->save();
             $exist = 1;
@@ -54,8 +57,8 @@ class CartController extends Controller
                 'product_id' => $productId,
                 'price' => $product->price,
                 'price_with_discount' => $product->calc_product_price(),
-                'quantity' =>  $que ,
-                'total_cost' =>  $que * $product->calc_product_price()
+                'quantity' => $quantity ?? 1,
+                'total_cost' => $quantity * $product->calc_product_price()
             ]);
             $exist = 0;
         } 

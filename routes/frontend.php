@@ -33,6 +33,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
     Route::get('courses', 'CourseController@index')->name('courses.index');
     Route::get('courses/{id}', 'CourseController@show')->name('courses.show');
     Route::post('courses/search', 'CourseController@search')->name('courses.search');
+    Route::post('courses/store', 'CourseController@store')->name('courses.store');
 
 
     // about and Contact

@@ -29,7 +29,7 @@ $(function() {
                 $(formMessages).text(response);
 
                 // Clear the form.
-                $('#contact-form input,#contact-form textarea').val('');
+                $('#contact-form')[0].reset();
             })
             .fail(function(data) {
                 // Make sure that the formMessages div has the 'error' class. 

@@ -29,7 +29,7 @@ class ContactController extends Controller
         $message->save();
 
         // Return a success response
-        return redirect()->with('success', 'Message sent successfully');
+        return 1;
     }
 }
 

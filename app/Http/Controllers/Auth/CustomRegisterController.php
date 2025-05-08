@@ -42,7 +42,7 @@ class CustomRegisterController extends Controller
             'customer_country' => ['required', 'in:' . implode(',', array_keys(User::CITY_SELECT))],
             'customer_region'  => ['required', 'in:' . implode(',', array_keys(User::AREA_SELECT))],
             'customer_complete-add' => 'required',
-            'customer_phone' => 'required|string|max:255|unique:users,phone',
+            'customer_phone' => 'required|string|max:255|unique:users,phone|regex:/^05[0-9]{8}$/',
 
         ]);
 
@@ -83,10 +83,10 @@ class CustomRegisterController extends Controller
             'country' => ['required', 'in:' . implode(',', array_keys(User::CITY_SELECT))],
             'region'  => ['required', 'in:' . implode(',', array_keys(User::AREA_SELECT))],
             'complete-add' => 'required',
-            'phone' => 'required|string|max:255|unique:users,phone',
+            'phone' => 'required|string|max:255|unique:users,phone|regex:/^05[0-9]{8}$/',
             'store_name' => 'required|string|max:255|unique:sellers,store_name|regex:/^[A-Za-z][A-Za-z0-9_ -]{2,28}$/',
             'description' => 'required|string|max:255',
-            'identity_number'=>'required|string|max:255|unique:users,identity_number',
+            'identity_number'=>'required|string|max:255|unique:users,identity_number|regex:/^[12]\d{9}$/',
             'commercial_register'=>'required|string|max:255|unique:users,commercial_register',
         ]);
         // Create a new seller user

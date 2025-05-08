@@ -109,8 +109,8 @@ return [
     'url'         => 'The :attribute format is invalid.',
     'uuid'        => 'The :attribute must be a valid UUID.',
     'custom'      => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'phone' => [
+            'regex' => 'The :attribute must start with 05 and be 10 digits long.',
         ],
     ],
     'reserved_word'                  => 'The :attribute contains reserved word',

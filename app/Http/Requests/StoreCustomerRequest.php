@@ -28,6 +28,7 @@ class StoreCustomerRequest extends FormRequest
             ],
             'password' => [
                 'required',
+                'max:8',
             ],
             'personal_photo' => [
                 'required',

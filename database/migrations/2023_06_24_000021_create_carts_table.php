@@ -12,7 +12,7 @@ class CreateCartsTable extends Migration
             $table->bigIncrements('id');
             $table->decimal('price', 15, 2);
             $table->decimal('price_with_discount', 15, 2);
-            $table->integer('quantity');
+            $table->integer('quantity')->default(1);
             $table->decimal('total_cost', 15, 2);
             $table->timestamps();
         });

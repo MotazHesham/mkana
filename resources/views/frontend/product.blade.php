@@ -64,8 +64,13 @@
                                     {{ $product->reviews->where('published', 1)->count() }} )</a></span>
                         </div>
                         <div class="stock mt-30px">
-                            <span class="avallabillty">الإتاحة: <span class="in-stock">
-                                    <i class="fa fa-check"></i>متاح</span></span>
+                            @if($product->current_stock > 0)
+                                <span class="avallabillty">الإتاحة: <span class="in-stock">
+                                        <i class="fa fa-check"></i>متاح</span></span>
+                            @else
+                                <span class="avallabillty">الإتاحة: <span class="in-stock">
+                                        <i class="fa fa-times"></i>غير متاح</span></span>
+                            @endif
                         </div>
                         @if ($product->weight)
                             <div class="stock mt-30px">
@@ -88,7 +93,7 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
 
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="quantity" value="1" />
+                                        <input class="cart-plus-minus-box" type="text" name="quantity" value="1" disabled/>
                                     </div>
                                     <div class="pro-details-cart">
                                         @auth
