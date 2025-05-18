@@ -483,7 +483,7 @@
                         <div class="row flex-md-row-reverse align-items-center">
                             <div class="col-md-12 text-center">
 
-                                <p class="copy-text"> © 2023 <strong>zumorod</strong>
+                                <p class="copy-text"> ©{{ date('Y') }} <strong>Mkana</strong>
                                     <strong> By Integration visions</strong></a>.
                                 </p>
 

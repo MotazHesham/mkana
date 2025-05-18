@@ -311,8 +311,9 @@
             },
             params: {
                 size: 2,
-                width: 4096,
-                height: 4096
+                width: 640,
+                height: 640,
+                exact_size: true
             },
             success: function(file, response) {
                 $('form').append('<input type="hidden" name="image[]" value="' + response.name + '">')

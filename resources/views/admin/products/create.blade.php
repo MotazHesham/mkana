@@ -165,8 +165,7 @@
                             <div class="invalid-feedback">
                                 {{ $errors->first('file') }}
                             </div>
-                        @endif
-                        <span class="help-block">{{ trans('cruds.product.fields.image_helper') }}</span>
+                        @endif 
                     </div>
                 </div>
                 <div class="form-group">
@@ -272,8 +271,9 @@
             },
             params: {
                 size: 2,
-                width: 4096,
-                height: 4096
+                width: 640,
+                height: 640,
+                exact_size: true
             },
             success: function(file, response) {
                 $('form').append('<input type="hidden" name="image[]" value="' + response.name + '">')

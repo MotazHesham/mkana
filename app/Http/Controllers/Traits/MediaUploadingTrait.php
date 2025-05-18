@@ -13,6 +13,11 @@ trait MediaUploadingTrait
             $this->validate(request(), [
                 'file' => 'max:' . request()->input('size') * 1024,
             ]);
+            if (request()->has('exact_size')) {
+                $this->validate(request(), [
+                    'file' => 'dimensions:width=' . request()->input('width') . ',height=' . request()->input('height'),
+                ]);
+            }
         }
         // If width or height is preset - we are validating it as an image
         if (request()->has('width') || request()->has('height')) {
