@@ -165,7 +165,7 @@
                         @foreach ($sellers as $seller)
                             <div class="swiper-slide brand-slider-item text-center">
                                 <a href="#"><img class="img-fluid"
-                                        src="{{ $seller->photo ? $seller->photo->getUrl() : '' }}" alt="" /></a>
+                                        src="{{ $seller->photo ? $seller->photo->getUrl('preview') : '' }}" alt="" /></a>
                             </div>
                         @endforeach
                     </div>

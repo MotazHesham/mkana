@@ -32,7 +32,7 @@
                                 <div class="single-blog bg-gray p-10px text-center">
                                     <div class="blog-image">
                                         @if (isset($course->photo))
-                                            <img class="img-responsive w-100" src="{{ $course->photo->getUrl() }}"
+                                            <img class="img-responsive w-100" src="{{ $course->photo->getUrl('preview') }}"
                                                 alt="">
                                         @else
                                             <img class="img-responsive w-100" src="{{ asset('assets/images/blank.jpg') }}"
